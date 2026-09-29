@@ -18,24 +18,79 @@
  * @package WordPress
  */
 
+/**
+ * Load environment variables from .env.
+ *
+ * The repository root .env is preferred, with wordpress/.env as a fallback.
+ */
+$tavernenfest_env_files = array(
+	dirname( __DIR__ ) . '/.env',
+	__DIR__ . '/.env',
+);
+
+foreach ( $tavernenfest_env_files as $tavernenfest_env_file ) {
+	if ( ! is_readable( $tavernenfest_env_file ) ) {
+		continue;
+	}
+
+	foreach ( file( $tavernenfest_env_file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES ) as $tavernenfest_env_line ) {
+		$tavernenfest_env_line = trim( $tavernenfest_env_line );
+
+		if ( '' === $tavernenfest_env_line || 0 === strpos( $tavernenfest_env_line, '#' ) || false === strpos( $tavernenfest_env_line, '=' ) ) {
+			continue;
+		}
+
+		list( $tavernenfest_env_key, $tavernenfest_env_value ) = explode( '=', $tavernenfest_env_line, 2 );
+		$tavernenfest_env_key   = trim( $tavernenfest_env_key );
+		$tavernenfest_env_value = trim( $tavernenfest_env_value );
+		$tavernenfest_env_value = trim( $tavernenfest_env_value, "\"'" );
+
+		if ( '' !== $tavernenfest_env_key && false === getenv( $tavernenfest_env_key ) ) {
+			putenv( $tavernenfest_env_key . '=' . $tavernenfest_env_value );
+			$_ENV[ $tavernenfest_env_key ]    = $tavernenfest_env_value;
+			$_SERVER[ $tavernenfest_env_key ] = $tavernenfest_env_value;
+		}
+	}
+
+	break;
+}
+
+function tavernenfest_env( $key, $default = null ) {
+	$value = getenv( $key );
+
+	if ( false === $value ) {
+		return $default;
+	}
+
+	if ( in_array( strtolower( $value ), array( 'true', '(true)' ), true ) ) {
+		return true;
+	}
+
+	if ( in_array( strtolower( $value ), array( 'false', '(false)' ), true ) ) {
+		return false;
+	}
+
+	return $value;
+}
+
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'tavernenfest' );
+define( 'DB_NAME', tavernenfest_env( 'DB_NAME', 'tavernenfest' ) );
 
 /** Database username */
-define( 'DB_USER', 'root' );
+define( 'DB_USER', tavernenfest_env( 'DB_USER', 'root' ) );
 
 /** Database password */
-define( 'DB_PASSWORD', 'password' );
+define( 'DB_PASSWORD', tavernenfest_env( 'DB_PASSWORD', 'password' ) );
 
 /** Database hostname */
-define( 'DB_HOST', 'localhost' );
+define( 'DB_HOST', tavernenfest_env( 'DB_HOST', 'localhost' ) );
 
 /** Database charset to use in creating database tables. */
-define( 'DB_CHARSET', 'utf8mb4' );
+define( 'DB_CHARSET', tavernenfest_env( 'DB_CHARSET', 'utf8mb4' ) );
 
 /** The database collate type. Don't change this if in doubt. */
-define( 'DB_COLLATE', '' );
+define( 'DB_COLLATE', tavernenfest_env( 'DB_COLLATE', '' ) );
 
 /**#@+
  * Authentication unique keys and salts.
@@ -48,14 +103,14 @@ define( 'DB_COLLATE', '' );
  *
  * @since 2.6.0
  */
-define( 'AUTH_KEY',         '6L?Kqwf+4u]-4$& ^Hf&,U}TS,OjLhw/tx~:(q+KWL;5d#S8~th!H1^VR{N U,hy' );
-define( 'SECURE_AUTH_KEY',  'M-Z3F}7I]CG,/QL|v/snA{;AnLb!`,-is|mSz8gi`}sH?$cbylg.wAt2UKWv3]J;' );
-define( 'LOGGED_IN_KEY',    'g?77W^-a#hY6?*VJe1VoSRy88QM@$BNgV?^TylSw^qsdpt[3`r75AoV9dOL>?rvp' );
-define( 'NONCE_KEY',        'AD^I@k(lQu(t~)~Qw{iMB,yOce`04sg^dz+CYbz8Xpnon$ N]z u1mcpy:$$#M{p' );
-define( 'AUTH_SALT',        '+>&e;kW>%>:2?mM[4Pqy]W!u x)Nm_cYcpHA}<HzxJ(L[*Wt;Tkf+^,{A#MH.@FI' );
-define( 'SECURE_AUTH_SALT', 'cNF<>;!/3X4$uE9HfFkYIdd7DC.E<e+fHMxAF2n9e8+/m`P>KoaL=jp^sW<iCj?o' );
-define( 'LOGGED_IN_SALT',   '0M _opNqaB/zqF+^Vc1kAcG$,WZnUX[0-l~ke.bbByC#WwnM5-t;RYHL*Xo1?FrC' );
-define( 'NONCE_SALT',       'Qv4Ru0RtS^NW`Hw}qW}O6B<|OVhM9Que=#,a}q+%Bau0rQY|6fnj&V(f7&nO.Qm/' );
+define( 'AUTH_KEY',         tavernenfest_env( 'AUTH_KEY', 'change-me' ) );
+define( 'SECURE_AUTH_KEY',  tavernenfest_env( 'SECURE_AUTH_KEY', 'change-me' ) );
+define( 'LOGGED_IN_KEY',    tavernenfest_env( 'LOGGED_IN_KEY', 'change-me' ) );
+define( 'NONCE_KEY',        tavernenfest_env( 'NONCE_KEY', 'change-me' ) );
+define( 'AUTH_SALT',        tavernenfest_env( 'AUTH_SALT', 'change-me' ) );
+define( 'SECURE_AUTH_SALT', tavernenfest_env( 'SECURE_AUTH_SALT', 'change-me' ) );
+define( 'LOGGED_IN_SALT',   tavernenfest_env( 'LOGGED_IN_SALT', 'change-me' ) );
+define( 'NONCE_SALT',       tavernenfest_env( 'NONCE_SALT', 'change-me' ) );
 
 /**#@-*/
 
@@ -85,9 +140,23 @@ $table_prefix = 'wp_';
  *
  * @link https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/
  */
-define( 'WP_DEBUG', false );
+define( 'WP_DEBUG', tavernenfest_env( 'WP_DEBUG', false ) );
 
 /* Add any custom values between this line and the "stop editing" line. */
+
+define( 'WP_ENVIRONMENT_TYPE', tavernenfest_env( 'WP_ENV', 'production' ) );
+define( 'WP_DEBUG_LOG', tavernenfest_env( 'WP_DEBUG_LOG', false ) );
+define( 'WP_DEBUG_DISPLAY', tavernenfest_env( 'WP_DEBUG_DISPLAY', false ) );
+define( 'SCRIPT_DEBUG', tavernenfest_env( 'SCRIPT_DEBUG', false ) );
+define( 'DISALLOW_FILE_EDIT', tavernenfest_env( 'DISALLOW_FILE_EDIT', true ) );
+
+if ( tavernenfest_env( 'WP_HOME' ) ) {
+	define( 'WP_HOME', tavernenfest_env( 'WP_HOME' ) );
+}
+
+if ( tavernenfest_env( 'WP_SITEURL' ) ) {
+	define( 'WP_SITEURL', tavernenfest_env( 'WP_SITEURL' ) );
+}
 
 
 
