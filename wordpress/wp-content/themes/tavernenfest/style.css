@@ -174,7 +174,7 @@ body.reveal-enabled main > .section.is-revealed, body.reveal-enabled main > .pro
   .hero-logo img { max-height: 155px; }
   .eyebrow { font-size: var(--hero-eyebrow-size-mobile, .68rem); }
   .hero-copy { max-width: 92%; margin-top: 1rem; font-size: var(--hero-copy-size-mobile, .92rem); }
-  .countdown { width: 100%; gap: clamp(.28rem, 1.5vw, .5rem); margin-top: 1.7rem; }
+  .countdown { justify-content: center; width: min(100%, 31rem); gap: clamp(.28rem, 1.5vw, .5rem); margin: 1.7rem auto 0; }
   .count-unit { flex: 1 1 0; min-width: 0; padding: .65rem .34rem .52rem; }
   .count-number { font-size: clamp(1.45rem, 10vw, 2.15rem); }
   .count-label { font-size: clamp(.44rem, 2.8vw, .58rem); letter-spacing: .1em; }
