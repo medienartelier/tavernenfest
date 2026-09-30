@@ -168,12 +168,12 @@ body.reveal-enabled main > .section.is-revealed, body.reveal-enabled main > .pro
 @media (max-width: 760px) {
   .hero { width: 100%; max-width: 100vw; min-height: calc(100svh - var(--wp-admin--admin-bar--height, 0px)); align-items: start; overflow-x: clip; }
   .hero-inner { align-self: start; width: min(calc(100vw - 2rem), 28rem); padding: 5.8rem 0 19.5rem; }
-  .hero-content { max-width: 100%; }
+  .hero-content { display: flex; flex-direction: column; align-items: center; max-width: 100%; text-align: center; }
   h1 { font-size: clamp(2.8rem, 11vw, var(--hero-title-size-mobile, 4.6rem)); overflow-wrap: normal; word-break: normal; }
-  .hero-logo { width: min(82vw, 330px); }
-  .hero-logo img { max-height: 112px; }
+  .hero-logo { width: min(82vw, 330px); margin-right: auto; margin-left: auto; }
+  .hero-logo img { max-height: 112px; object-position: center; }
   .eyebrow { max-width: 100%; margin-bottom: .7rem; font-size: var(--hero-eyebrow-size-mobile, .54rem); letter-spacing: .12em; overflow-wrap: anywhere; }
-  .hero-copy { max-width: 84%; margin-top: .5rem; font-size: var(--hero-copy-size-mobile, .74rem); line-height: 1.36; }
+  .hero-copy { max-width: min(84%, 24rem); margin: .5rem auto 0; font-size: var(--hero-copy-size-mobile, .74rem); line-height: 1.36; }
   .countdown { justify-content: center; width: min(100%, 24rem); max-width: 100%; gap: clamp(.16rem, .8vw, .32rem); margin: .85rem auto 0; }
   .count-unit { flex: 1 1 0; min-width: 0; padding: .44rem .22rem .38rem; }
   .count-number { font-size: clamp(1.18rem, 8vw, 1.68rem); }
