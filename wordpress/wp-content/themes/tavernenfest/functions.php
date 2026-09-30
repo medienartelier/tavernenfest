@@ -18,7 +18,7 @@ function tavernenfest_menu_fallback() {
 
 function tavernenfest_assets() {
     wp_enqueue_style( 'tavernenfest-fonts', 'https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap', array(), null );
-    wp_enqueue_style( 'tavernenfest-style', get_stylesheet_uri(), array( 'tavernenfest-fonts' ), '1.0.36' );
+    wp_enqueue_style( 'tavernenfest-style', get_stylesheet_uri(), array( 'tavernenfest-fonts' ), '1.0.37' );
     wp_enqueue_script( 'tavernenfest-script', get_template_directory_uri() . '/assets/js/countdown.js', array(), '1.0.8', true );
 }
 add_action( 'wp_enqueue_scripts', 'tavernenfest_assets' );
