@@ -167,20 +167,20 @@ body.reveal-enabled main > .section.is-revealed, body.reveal-enabled main > .pro
 }
 @media (max-width: 760px) {
   .hero { min-height: calc(100svh - var(--wp-admin--admin-bar--height, 0px)); align-items: start; }
-  .hero-inner { align-self: start; padding: 6.6rem 0 18rem; }
+  .hero-inner { align-self: start; padding: 5.8rem 0 19.5rem; }
   .hero-content { max-width: 100%; }
   h1 { font-size: clamp(2.8rem, 11vw, var(--hero-title-size-mobile, 4.6rem)); overflow-wrap: normal; word-break: normal; }
-  .hero-logo { width: min(86vw, 360px); }
-  .hero-logo img { max-height: 125px; }
-  .eyebrow { font-size: var(--hero-eyebrow-size-mobile, .68rem); }
-  .hero-copy { max-width: 88%; margin-top: .8rem; font-size: var(--hero-copy-size-mobile, .84rem); line-height: 1.5; }
-  .countdown { justify-content: center; width: min(100%, 28rem); gap: clamp(.25rem, 1.3vw, .45rem); margin: 1.15rem auto 0; }
-  .count-unit { flex: 1 1 0; min-width: 0; padding: .52rem .28rem .44rem; }
-  .count-number { font-size: clamp(1.28rem, 8.8vw, 1.9rem); }
-  .count-label { margin-top: .36rem; font-size: clamp(.38rem, 2.55vw, .52rem); letter-spacing: .08em; }
-  .count-separator { flex: 0 0 .55rem; font-size: 1.35rem; text-align: center; }
-  .hero-figure { left: 50%; bottom: -1rem; width: min(72vw, 330px); opacity: .96; }
-  .hero-heart { left: 69%; bottom: .2rem; width: min(28vw, 125px); }
+  .hero-logo { width: min(82vw, 330px); }
+  .hero-logo img { max-height: 112px; }
+  .eyebrow { margin-bottom: .7rem; font-size: var(--hero-eyebrow-size-mobile, .6rem); }
+  .hero-copy { max-width: 84%; margin-top: .5rem; font-size: var(--hero-copy-size-mobile, .74rem); line-height: 1.36; }
+  .countdown { justify-content: center; width: min(100%, 25.5rem); gap: clamp(.18rem, 1vw, .35rem); margin: .85rem auto 0; }
+  .count-unit { flex: 1 1 0; min-width: 0; padding: .44rem .22rem .38rem; }
+  .count-number { font-size: clamp(1.18rem, 8vw, 1.68rem); }
+  .count-label { margin-top: .32rem; font-size: clamp(.34rem, 2.3vw, .46rem); letter-spacing: .07em; }
+  .count-separator { flex: 0 0 .45rem; font-size: 1.12rem; text-align: center; }
+  .hero-figure { left: 50%; bottom: -4.8rem; width: min(66vw, 305px); opacity: .96; }
+  .hero-heart { left: 69%; bottom: -2.4rem; width: min(26vw, 116px); }
   .intro { grid-template-columns: 1fr; gap: 1.5rem; }
   .section { padding: 5rem 5vw; }
   .program-header { display: block; }
