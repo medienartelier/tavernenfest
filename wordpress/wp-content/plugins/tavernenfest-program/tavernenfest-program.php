@@ -119,7 +119,7 @@ function tavernenfest_program_admin_assets( $hook ) {
 add_action( 'admin_enqueue_scripts', 'tavernenfest_program_admin_assets' );
 
 function tavernenfest_program_front_assets() {
-    wp_enqueue_style( 'tavernenfest-program-front', plugins_url( 'assets/program-front.css', __FILE__ ), array(), '1.0.0' );
+    wp_enqueue_style( 'tavernenfest-program-front', plugins_url( 'assets/program-front.css', __FILE__ ), array(), '1.0.1' );
 }
 add_action( 'wp_enqueue_scripts', 'tavernenfest_program_front_assets' );
 
@@ -220,4 +220,3 @@ function tavernenfest_program_render() {
     echo '</div></div>';
     return ob_get_clean();
 }
-
