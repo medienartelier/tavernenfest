@@ -22,8 +22,8 @@ Text Domain: tavernenfest
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body); line-height: 1.6; }
+html { overflow-x: hidden; scroll-behavior: smooth; }
+body { overflow-x: hidden; margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body); line-height: 1.6; }
 a { color: inherit; }
 img { display: block; max-width: 100%; height: auto; }
 .site-header { position: absolute; z-index: 100; top: 0; width: 100%; padding: 2.5rem 5vw 1.5rem; color: #fff; transition: background-color .25s ease, box-shadow .25s ease, color .25s ease, transform .25s ease; }
@@ -166,15 +166,15 @@ body.reveal-enabled main > .section.is-revealed, body.reveal-enabled main > .pro
   .impressions-section { padding-top: 6rem; }
 }
 @media (max-width: 760px) {
-  .hero { min-height: calc(100svh - var(--wp-admin--admin-bar--height, 0px)); align-items: start; }
-  .hero-inner { align-self: start; padding: 5.8rem 0 19.5rem; }
+  .hero { width: 100%; max-width: 100vw; min-height: calc(100svh - var(--wp-admin--admin-bar--height, 0px)); align-items: start; overflow-x: clip; }
+  .hero-inner { align-self: start; width: min(calc(100vw - 2rem), 28rem); padding: 5.8rem 0 19.5rem; }
   .hero-content { max-width: 100%; }
   h1 { font-size: clamp(2.8rem, 11vw, var(--hero-title-size-mobile, 4.6rem)); overflow-wrap: normal; word-break: normal; }
   .hero-logo { width: min(82vw, 330px); }
   .hero-logo img { max-height: 112px; }
-  .eyebrow { margin-bottom: .7rem; font-size: var(--hero-eyebrow-size-mobile, .6rem); }
+  .eyebrow { max-width: 100%; margin-bottom: .7rem; font-size: var(--hero-eyebrow-size-mobile, .54rem); letter-spacing: .12em; overflow-wrap: anywhere; }
   .hero-copy { max-width: 84%; margin-top: .5rem; font-size: var(--hero-copy-size-mobile, .74rem); line-height: 1.36; }
-  .countdown { justify-content: center; width: min(100%, 25.5rem); gap: clamp(.18rem, 1vw, .35rem); margin: .85rem auto 0; }
+  .countdown { justify-content: center; width: min(100%, 24rem); max-width: 100%; gap: clamp(.16rem, .8vw, .32rem); margin: .85rem auto 0; }
   .count-unit { flex: 1 1 0; min-width: 0; padding: .44rem .22rem .38rem; }
   .count-number { font-size: clamp(1.18rem, 8vw, 1.68rem); }
   .count-label { margin-top: .32rem; font-size: clamp(.34rem, 2.3vw, .46rem); letter-spacing: .07em; }
