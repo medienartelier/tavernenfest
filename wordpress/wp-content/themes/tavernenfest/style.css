@@ -180,7 +180,7 @@ body.reveal-enabled main > .section.is-revealed, body.reveal-enabled main > .pro
   .count-label { margin-top: .32rem; font-size: clamp(.34rem, 2.3vw, .46rem); letter-spacing: .07em; }
   .count-separator { flex: 0 0 .45rem; font-size: 1.12rem; text-align: center; }
   .hero-figure { left: 50%; bottom: -4.8rem; width: min(66vw, 305px); opacity: .96; }
-  .hero-heart { left: 69%; bottom: -2.4rem; width: min(26vw, 116px); }
+  .hero-heart { left: 70%; bottom: -.85rem; width: min(32vw, 142px); }
   .intro { grid-template-columns: 1fr; gap: 1.5rem; }
   .section { padding: 5rem 5vw; }
   .program-header { display: block; }
